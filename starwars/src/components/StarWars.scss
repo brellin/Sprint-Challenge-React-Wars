@@ -2,10 +2,9 @@
     width: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 100px 100px 100px;
     grid-template-areas: 'name name' 'height mass' 'hair_color skin_color';
     background: #cccccc50;
-    border-radius: 5px;
+    border-radius: 15px;
     margin: 25px;
     .data {
         display: flex;
@@ -14,24 +13,44 @@
         background: #ffffff80;
         font-size: 1.5rem;
         border-radius: 25px;
-        margin: 10px;
+        margin: 10px 75px;
         text-transform: capitalize;
+        legend {
+            font-weight: normal;
+            text-align: left;
+            color: #333;
+        }
     }
     .name {
         grid-area: name;
         font-size: 2rem;
         font-weight: bold;
+        legend {
+            font-size: 1.3rem;
+        }
     }
     .height {
         grid-area: height;
+        legend {
+            font-size: 1.3rem;
+        }
     }
     .mass {
         grid-area: mass;
+        legend {
+            font-size: 1.3rem;
+        }
     }
     .hair_color {
         grid-area: hair_color;
+        legend {
+            font-size: 1.3rem;
+        }
     }
     .skin_color {
         grid-area: skin_color;
+        legend {
+            font-size: 1.3rem;
+        }
     }
 }
