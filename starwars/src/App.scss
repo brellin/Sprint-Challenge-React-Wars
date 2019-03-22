@@ -1,10 +1,11 @@
 .App {
     text-align: center;
-    width: 800px;
+    width: 1000px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     margin: 0 auto;
 }
 
@@ -21,7 +22,7 @@
 }
 
 .big {
-    font-size: 8rem;
+    font-size: 10rem;
 }
 
 /* write your parent styles in here for your App.js */
