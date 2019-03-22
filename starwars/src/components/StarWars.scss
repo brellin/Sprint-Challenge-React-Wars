@@ -1,0 +1,30 @@
+.char {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 200px 100px 100px;
+    grid-template-areas: 'name name' 'height mass' 'hair_color skin_color';
+    background: #cccccc50;
+    .data {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff50;
+        font-size: 1.5rem;
+    }
+    .name {
+        grid-area: name;
+    }
+    .height {
+        grid-area: height;
+    }
+    .mass {
+        grid-area: mass;
+    }
+    .hair_color {
+        grid-area: hair_color;
+    }
+    .skin_color {
+        grid-area: skin_color;
+    }
+}
