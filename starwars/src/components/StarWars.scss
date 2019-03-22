@@ -2,18 +2,25 @@
     width: 100%;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-rows: 200px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
     grid-template-areas: 'name name' 'height mass' 'hair_color skin_color';
     background: #cccccc50;
+    border-radius: 5px;
+    margin: 25px;
     .data {
         display: flex;
         align-items: center;
         justify-content: center;
-        background: #ffffff50;
+        background: #ffffff80;
         font-size: 1.5rem;
+        border-radius: 25px;
+        margin: 10px;
+        text-transform: capitalize;
     }
     .name {
         grid-area: name;
+        font-size: 2rem;
+        font-weight: bold;
     }
     .height {
         grid-area: height;

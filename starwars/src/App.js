@@ -6,7 +6,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      starwarsChars: []
+      starwarsChars: [],
+      enter: false
     };
   }
 
@@ -30,12 +31,20 @@ class App extends Component {
       });
   };
 
+  enter = () => {
+    this.setState({ enter: !this.state.enter })
+  }
+
   render() {
     return (
       <div className="App">
-        <h1 className="Header">React Wars</h1>
-        {this.state.starwarsChars.map((char, i) => <Character key={i} char={char} />)}
-      </div>
+        <div
+          className={`Header${this.state.enter === true ? '' : ' big'}`}
+          onClick={this.enter}
+        >
+          <h1>React Wars</h1></div>
+        {this.state.enter === false ? null : this.state.starwarsChars.map((char, i) => <Character key={i} char={char} />)}
+      </div >
     );
   }
 }
