@@ -54,7 +54,7 @@ class App extends Component {
         >
           <h1>React Wars</h1></div>
         {this.state.enter === false ? null : this.state.starwarsChars.map((char, i) => <Character key={i} char={char} />)}
-        <button onClick={this.triggerNextPage}>Next Page</button>
+        {this.state.enter === false ? null : <button onClick={this.triggerNextPage}>Next Page</button>}
       </div>
     );
   }
