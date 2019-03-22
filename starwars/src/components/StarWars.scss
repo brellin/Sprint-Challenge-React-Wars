@@ -1,0 +1,66 @@
+.char {
+    width: max-content;
+    display: grid;
+    grid-template-areas: 'name name name' 'height unset mass' 'hair_color eye_color skin_color';
+    background: #cccccc75;
+    border-radius: 100px;
+    margin: 25px;
+    padding: 25px;
+    justify-content: center;
+    .data {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff80;
+        font-size: 1.5rem;
+        border-radius: 25px;
+        margin: 10px;
+        width: max-content;
+        text-transform: capitalize;
+        padding: 10px 50px;
+        legend {
+            font-weight: normal;
+            text-align: left;
+            color: #333;
+        }
+    }
+    .name {
+        grid-area: name;
+        font-size: 2rem;
+        font-weight: bold;
+        justify-self: center;
+        legend {
+            font-size: 1.3rem;
+        }
+    }
+    .height {
+        grid-area: height;
+        legend {
+            font-size: 1.3rem;
+        }
+    }
+    .mass {
+        grid-area: mass;
+        legend {
+            font-size: 1.3rem;
+        }
+    }
+    .hair_color {
+        grid-area: hair_color;
+        legend {
+            font-size: 1.3rem;
+        }
+    }
+    .skin_color {
+        grid-area: skin_color;
+        legend {
+            font-size: 1.3rem;
+        }
+    }
+    .eye_color {
+        grid-area: eye_color;
+        legend {
+            font-size: 1.3rem;
+        }
+    }
+}
