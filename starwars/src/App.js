@@ -1,63 +1,64 @@
-import React, { Component } from 'react';
-import './App.scss';
-import Character from './components/Character';
+import React, { useState, useEffect } from 'react'
+import './App.scss'
+import Character from './components/Character'
 
-class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      starwarsChars: [],
-      enter: false,
-      npUrl: ''
-    };
-  }
+const App = () => {
 
-  componentDidMount(url) {
-    this.getCharacters(this.state.npUrl === '' ? 'https://swapi.co/api/people/' : url);
-  }
+  const [state, setState] = useState({
+    starwarsChars: [],
+    enter: false,
+    npUrl: '',
+    render: false
+  })
 
-  getCharacters = URL => {
-    // feel free to research what this code is doing.
-    // At a high level we are calling an API to fetch some starwars data from the open web.
-    // We then take that data and resolve it our state.
+  useEffect(() => {
+
+    getCharacters(state.npUrl === '' ? 'https://swapi.co/api/people/' : state.npUrl)
+
+  }, [state.render])
+
+  function getCharacters(URL) {
+
     fetch(URL)
       .then(res => {
-        return res.json();
+        console.log(res)
+        return res.json()
       })
       .then(data => {
-        console.log(data.next)
-        this.setState({
+        setState({
+          ...state,
           starwarsChars: data.results,
-          npUrl: data.next
-        });
+          npUrl: data.next === '' ? '' : data.next,
+          render: false
+        })
       })
       .catch(err => {
-        throw new Error(err);
-      });
-  };
+        throw new Error(err)
+      })
 
-  enter = () => {
-    this.setState({ enter: !this.state.enter })
   }
 
-  triggerNextPage = e => {
-    e.preventDefault();
-    this.componentDidMount(this.state.npUrl)
+  const enter = () => {
+    setState({ ...state, enter: !state.enter })
   }
 
-  render() {
-    return (
-      <div className="App">
-        <div
-          className={`Header${this.state.enter === true ? '' : ' big'}`}
-          onClick={this.enter}
-        >
-          <h1>React Wars</h1></div>
-        {this.state.enter === false ? null : this.state.starwarsChars.map((char, i) => <Character key={i} char={char} />)}
-        {this.state.enter === false ? null : <button onClick={this.triggerNextPage}>Next Page</button>}
-      </div>
-    );
+  const triggerNextPage = e => {
+    e.preventDefault()
+    setState({ ...state, render: true })
   }
+
+  return (
+    <div className="App">
+      <div
+        className={`Header${state.enter === true ? '' : ' big'}`}
+        onClick={enter}
+      >
+        <h1>React Wars</h1></div>
+      {state.enter === false ? null : state.starwarsChars.map((char, i) => <Character key={i} char={char} />)}
+      {state.enter === false ? null : <button onClick={triggerNextPage}>Next Page</button>}
+    </div>
+  )
+
 }
 
-export default App;
+export default App
